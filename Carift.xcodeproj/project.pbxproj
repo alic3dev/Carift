@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		919C30A42AF304DD0094ADA1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919C30A32AF304DD0094ADA1 /* main.swift */; };
+		919C30AC2AF305450094ADA1 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919C30AB2AF305450094ADA1 /* Deck.swift */; };
+		919C30AE2AF305600094ADA1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919C30AD2AF305600094ADA1 /* Card.swift */; };
+		919C30B02AF305770094ADA1 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919C30AF2AF305770094ADA1 /* Hand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		919C30A02AF304DD0094ADA1 /* Carift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Carift; sourceTree = BUILT_PRODUCTS_DIR; };
 		919C30A32AF304DD0094ADA1 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		919C30AB2AF305450094ADA1 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		919C30AD2AF305600094ADA1 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		919C30AF2AF305770094ADA1 /* Hand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +63,20 @@
 		919C30A22AF304DD0094ADA1 /* Carift */ = {
 			isa = PBXGroup;
 			children = (
+				919C30AA2AF305260094ADA1 /* utils */,
 				919C30A32AF304DD0094ADA1 /* main.swift */,
 			);
 			path = Carift;
+			sourceTree = "<group>";
+		};
+		919C30AA2AF305260094ADA1 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				919C30AB2AF305450094ADA1 /* Deck.swift */,
+				919C30AD2AF305600094ADA1 /* Card.swift */,
+				919C30AF2AF305770094ADA1 /* Hand.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +137,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				919C30B02AF305770094ADA1 /* Hand.swift in Sources */,
+				919C30AC2AF305450094ADA1 /* Deck.swift in Sources */,
+				919C30AE2AF305600094ADA1 /* Card.swift in Sources */,
 				919C30A42AF304DD0094ADA1 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
