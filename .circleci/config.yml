@@ -5,28 +5,28 @@ jobs: # a basic unit of work in a run
     macos:
       xcode: 15.0.1 # indicate your selected version of Xcode
     steps: # a series of commands to run
-      - checkout  # pull down code from your version control system.
+      - checkout # pull down code from your version control system.
       - run:
           name: Run Unit Tests
-          command: xcodebuild test -scheme Carift
+          command: swift test
 
-  build: 
+  build:
     macos:
       xcode: 15.0.1 # indicate your selected version of Xcode
-    steps: 
+    steps:
       - checkout
       - run:
           # build our application
           name: Build Application
-          command: xcodebuild
+          command: swift build -c release
       - run:
           # compress Xcode's build output so that it can be stored as an artifact
           name: Compress app for storage
-          command: zip -r app.zip build/Release/Carift
+          command: zip -r app.zip .build/release/Carift
       - store_artifacts: # store this build output. Read more: https://circleci.com/docs/2.0/artifacts/
           path: app.zip
           destination: app
-          
+
 workflows:
   test_build:
     jobs:
@@ -34,4 +34,3 @@ workflows:
       - build:
           requires:
             - test
-
