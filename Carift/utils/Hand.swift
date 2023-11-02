@@ -53,7 +53,14 @@ class Hand {
       }
     }
 
-    return values
+    var uniqueValues: [Int] = []
+    for i in 0 ... values.count - 1 {
+      if !uniqueValues.contains(values[i]) {
+        uniqueValues.append(values[i])
+      }
+    }
+
+    return uniqueValues
   }
 
   func blackJackClosestToTwentyOne() -> Int? {
