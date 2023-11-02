@@ -38,6 +38,7 @@
 		91C8F3462AF31127002056C5 /* Carift.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = Carift.xctestplan; path = Tests/Carift.xctestplan; sourceTree = "<group>"; };
 		91C8F34B2AF41E95002056C5 /* Carift-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Carift-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91C8F34D2AF41E95002056C5 /* Carift_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carift_Tests.swift; sourceTree = "<group>"; };
+		919C30B12AF308770094ADA1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				91C8F3462AF31127002056C5 /* Carift.xctestplan */,
+				919C30B12AF308770094ADA1 /* README.md */,
 				919C30A22AF304DD0094ADA1 /* Carift */,
 				91C8F34C2AF41E95002056C5 /* Carift-Tests */,
 				919C30A12AF304DD0094ADA1 /* Products */,
