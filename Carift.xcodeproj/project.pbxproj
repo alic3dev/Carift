@@ -31,6 +31,7 @@
 		919C30AB2AF305450094ADA1 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		919C30AD2AF305600094ADA1 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		919C30AF2AF305770094ADA1 /* Hand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
+		919C30B12AF308770094ADA1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +48,7 @@
 		919C30972AF304DD0094ADA1 = {
 			isa = PBXGroup;
 			children = (
+				919C30B12AF308770094ADA1 /* README.md */,
 				919C30A22AF304DD0094ADA1 /* Carift */,
 				919C30A12AF304DD0094ADA1 /* Products */,
 			);
