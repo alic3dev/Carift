@@ -11,6 +11,10 @@
 		919C30AC2AF305450094ADA1 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919C30AB2AF305450094ADA1 /* Deck.swift */; };
 		919C30AE2AF305600094ADA1 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919C30AD2AF305600094ADA1 /* Card.swift */; };
 		919C30B02AF305770094ADA1 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919C30AF2AF305770094ADA1 /* Hand.swift */; };
+		91C8F34E2AF41E95002056C5 /* Carift_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C8F34D2AF41E95002056C5 /* Carift_Tests.swift */; };
+		91C8F3532AF423A9002056C5 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919C30AB2AF305450094ADA1 /* Deck.swift */; };
+		91C8F3542AF423A9002056C5 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919C30AD2AF305600094ADA1 /* Card.swift */; };
+		91C8F3552AF423A9002056C5 /* Hand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919C30AF2AF305770094ADA1 /* Hand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,10 +36,20 @@
 		919C30AD2AF305600094ADA1 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		919C30AF2AF305770094ADA1 /* Hand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand.swift; sourceTree = "<group>"; };
 		919C30B12AF308770094ADA1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		91C8F3462AF31127002056C5 /* Carift.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = Carift.xctestplan; path = Tests/Carift.xctestplan; sourceTree = "<group>"; };
+		91C8F34B2AF41E95002056C5 /* Carift-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Carift-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		91C8F34D2AF41E95002056C5 /* Carift_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carift_Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		919C309D2AF304DD0094ADA1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91C8F3482AF41E95002056C5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -48,8 +62,10 @@
 		919C30972AF304DD0094ADA1 = {
 			isa = PBXGroup;
 			children = (
+				91C8F3462AF31127002056C5 /* Carift.xctestplan */,
 				919C30B12AF308770094ADA1 /* README.md */,
 				919C30A22AF304DD0094ADA1 /* Carift */,
+				91C8F34C2AF41E95002056C5 /* Carift-Tests */,
 				919C30A12AF304DD0094ADA1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				919C30A02AF304DD0094ADA1 /* Carift */,
+				91C8F34B2AF41E95002056C5 /* Carift-Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,6 +98,14 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
+		91C8F34C2AF41E95002056C5 /* Carift-Tests */ = {
+			isa = PBXGroup;
+			children = (
+				91C8F34D2AF41E95002056C5 /* Carift_Tests.swift */,
+			);
+			path = "Carift-Tests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -101,6 +126,23 @@
 			productReference = 919C30A02AF304DD0094ADA1 /* Carift */;
 			productType = "com.apple.product-type.tool";
 		};
+		91C8F34A2AF41E95002056C5 /* Carift-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91C8F34F2AF41E95002056C5 /* Build configuration list for PBXNativeTarget "Carift-Tests" */;
+			buildPhases = (
+				91C8F3472AF41E95002056C5 /* Sources */,
+				91C8F3482AF41E95002056C5 /* Frameworks */,
+				91C8F3492AF41E95002056C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Carift-Tests";
+			productName = "Carift-Tests";
+			productReference = 91C8F34B2AF41E95002056C5 /* Carift-Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -112,6 +154,9 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					919C309F2AF304DD0094ADA1 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					91C8F34A2AF41E95002056C5 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
 				};
@@ -130,9 +175,20 @@
 			projectRoot = "";
 			targets = (
 				919C309F2AF304DD0094ADA1 /* Carift */,
+				91C8F34A2AF41E95002056C5 /* Carift-Tests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		91C8F3492AF41E95002056C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		919C309C2AF304DD0094ADA1 /* Sources */ = {
@@ -143,6 +199,17 @@
 				919C30AC2AF305450094ADA1 /* Deck.swift in Sources */,
 				919C30AE2AF305600094ADA1 /* Card.swift in Sources */,
 				919C30A42AF304DD0094ADA1 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91C8F3472AF41E95002056C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91C8F3532AF423A9002056C5 /* Deck.swift in Sources */,
+				91C8F3542AF423A9002056C5 /* Card.swift in Sources */,
+				91C8F3552AF423A9002056C5 /* Hand.swift in Sources */,
+				91C8F34E2AF41E95002056C5 /* Carift_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +356,46 @@
 			};
 			name = Release;
 		};
+		91C8F3502AF41E95002056C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UPCM39KX7S;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.5.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.alic3.Carift-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		91C8F3512AF41E95002056C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UPCM39KX7S;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.5.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dev.alic3.Carift-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -306,6 +413,15 @@
 			buildConfigurations = (
 				919C30A82AF304DD0094ADA1 /* Debug */,
 				919C30A92AF304DD0094ADA1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		91C8F34F2AF41E95002056C5 /* Build configuration list for PBXNativeTarget "Carift-Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91C8F3502AF41E95002056C5 /* Debug */,
+				91C8F3512AF41E95002056C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

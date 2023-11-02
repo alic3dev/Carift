@@ -21,11 +21,15 @@ class Deck {
     shuffle()
   }
   
+  func reset() {
+    cards.append(contentsOf: discardedCards)
+    
+    discardedCards.removeAll()
+  }
+  
   func shuffle(reset: Bool = true) {
     if reset {
-      cards.append(contentsOf: discardedCards)
-      
-      discardedCards.removeAll()
+      self.reset()
     }
     
     cards.shuffle()
