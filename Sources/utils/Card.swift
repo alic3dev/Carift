@@ -24,12 +24,12 @@ class Card {
   }
 
   func valueAsString() -> String {
-    if value == 1 {
+    if self.value == 1 {
       return "Ace"
     }
 
-    if value > 10 {
-      switch value {
+    if self.value > 10 {
+      switch self.value {
       case 11:
         return "Jack"
       case 12:
@@ -41,18 +41,18 @@ class Card {
       }
     }
 
-    return String(value)
+    return String(self.value)
   }
 
   func valueAsPoints() -> Int {
-    if value > 10 {
+    if self.value > 10 {
       return 10
     }
 
-    return value
+    return self.value
   }
 
   func display() -> String {
-    return "\(valueAsString()) of \(suit)s"
+    return "\(self.valueAsString()) of \(self.suit)s"
   }
 }
