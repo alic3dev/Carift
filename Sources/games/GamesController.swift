@@ -20,7 +20,7 @@ class GamesController {
 
     let exitInputNum: Int = self.games.count + 1
 
-    print(" ♡♤♧♢ ♡♤♧♢ ")
+    print(" ♡♤♧♢ Carift ♡♤♧♢ ")
     print("Select a game")
 
     for i: Int in 1...self.games.count {
