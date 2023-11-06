@@ -10,40 +10,40 @@ import Foundation
 class Deck {
   private var cards: [Card] = []
   private var discardedCards: [Card] = []
-  
+
   init() {
-    for suit in Suit.allCases {
-      for value in 1 ... 13 {
-        cards.append(Card(value: value, suit: suit))
+    for suit: Suit in Suit.allCases {
+      for value: Int in 1...13 {
+        self.cards.append(Card(value: value, suit: suit))
       }
     }
-    
-    shuffle()
+
+    self.shuffle()
   }
-  
+
   func reset() {
-    cards.append(contentsOf: discardedCards)
-    
-    discardedCards.removeAll()
+    self.cards.append(contentsOf: self.discardedCards)
+
+    self.discardedCards.removeAll()
   }
-  
+
   func shuffle(reset: Bool = true) {
     if reset {
       self.reset()
     }
-    
-    cards.shuffle()
+
+    self.cards.shuffle()
   }
-  
+
   func draw() -> Card? {
-    if cards.isEmpty {
+    if self.cards.isEmpty {
       return nil
     }
-    
-    let card: Card = cards.removeFirst()
-    
-    discardedCards.append(card)
-    
+
+    let card: Card = self.cards.removeFirst()
+
+    self.discardedCards.append(card)
+
     return card
   }
 }

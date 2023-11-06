@@ -17,7 +17,7 @@ class Hand {
   }
 
   func add(card: Card) {
-    cards.append(card)
+    self.cards.append(card)
   }
 
   func add(cards: [Card]) {
@@ -25,36 +25,41 @@ class Hand {
   }
 
   func count() -> Int {
-    cards.count
+    return self.cards.count
   }
 
   func isEmpty() -> Bool {
-    cards.isEmpty
+    return self.cards.isEmpty
   }
 
   func clear() {
-    cards.removeAll()
+    self.cards.removeAll()
   }
 
   func display() -> [String] {
-    cards.map { $0.display() }
+    return self.cards.map { $0.display() }
   }
 
   func blackJackTotals(withoutFirst: Bool = false) -> [Int] {
     var values = [0]
 
-    for card in withoutFirst ? [Card](cards.dropFirst()) : cards {
+    for card: Card in withoutFirst ? [Card](self.cards.dropFirst()) : self.cards {
       let cardValue = card.valueAsPoints()
 
       values = values.map { value -> Int in value + cardValue }
 
       if cardValue == 1 {
-        values.append(contentsOf: values.map { value -> Int in value + 10 }.filter { value -> Bool in value < 21 })
+        values.append(
+          contentsOf:
+            values
+            .map { (value: Int) -> Int in value + 10 }
+            .filter { (value: Int) -> Bool in value < 21 }
+        )
       }
     }
 
     var uniqueValues: [Int] = []
-    for i in 0 ... values.count - 1 {
+    for i: Int in 0...values.count - 1 {
       if !uniqueValues.contains(values[i]) {
         uniqueValues.append(values[i])
       }
