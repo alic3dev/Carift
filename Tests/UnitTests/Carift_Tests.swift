@@ -5,8 +5,9 @@
 //  Created by Alice Grace on 11/2/23.
 //
 
-@testable import Carift
 import XCTest
+
+@testable import Carift
 
 final class Card_Tests: XCTestCase {
   func testValueAsPoints() {
@@ -51,16 +52,18 @@ final class Card_Tests: XCTestCase {
       Card(value: 14, suit: Suit.Club),
     ]
 
-    XCTAssertEqual(cards.map { $0.display() }, [
-      "Ace of Diamonds",
-      "2 of Hearts",
-      "Jack of Spades",
-      "10 of Clubs",
-      "Jack of Diamonds",
-      "Queen of Hearts",
-      "King of Spades",
-      "Unknown of Clubs",
-    ])
+    XCTAssertEqual(
+      cards.map { $0.display() },
+      [
+        "Ace of Diamonds",
+        "2 of Hearts",
+        "Jack of Spades",
+        "10 of Clubs",
+        "Jack of Diamonds",
+        "Queen of Hearts",
+        "King of Spades",
+        "Unknown of Clubs",
+      ])
   }
 }
 
@@ -68,12 +71,12 @@ final class Deck_Tests: XCTestCase {
   var deck: Deck = .init()
 
   override func setUpWithError() throws {
-    deck = Deck()
+    self.deck = Deck()
   }
 
   func testDrawsAllCards() {
-    for i in 0 ... 54 {
-      let card: Card? = deck.draw()
+    for i: Int in 0...54 {
+      let card: Card? = self.deck.draw()
 
       if i < 52 {
         XCTAssertNotNil(card)
@@ -84,11 +87,11 @@ final class Deck_Tests: XCTestCase {
   }
 
   func testShuffles() {
-    let card: Card? = deck.draw()
+    let card: Card? = self.deck.draw()
 
-    deck.shuffle()
+    self.deck.shuffle()
 
-    let shuffledCard: Card? = deck.draw()
+    let shuffledCard: Card? = self.deck.draw()
 
     XCTAssertFalse(
       card?.value == shuffledCard?.value && card?.suit == shuffledCard?.suit
@@ -99,14 +102,14 @@ final class Deck_Tests: XCTestCase {
   }
 
   func testShufflesNoReset() {
-    let cards: [Card?] = [deck.draw(), deck.draw(), deck.draw(), deck.draw()]
+    let cards: [Card?] = [self.deck.draw(), self.deck.draw(), self.deck.draw(), self.deck.draw()]
 
-    deck.shuffle(reset: false)
+    self.deck.shuffle(reset: false)
 
     var shuffledCard: Card?
 
     repeat {
-      shuffledCard = deck.draw()
+      shuffledCard = self.deck.draw()
 
       XCTAssertFalse(
         cards.contains {
@@ -122,84 +125,88 @@ final class Hand_Tests: XCTestCase {
   var hand: Hand = .init()
 
   override func setUpWithError() throws {
-    deck.shuffle()
-    hand.clear()
+    self.deck.shuffle()
+    self.hand.clear()
   }
 
   func testAddsSingleCards() {
-    let cards: [Card?] = [deck.draw(), deck.draw(), deck.draw(), deck.draw()]
+    let cards: [Card?] = [self.deck.draw(), self.deck.draw(), self.deck.draw(), self.deck.draw()]
 
-    for i in 0 ... cards.count - 1 {
-      hand.add(card: cards[i]!)
+    for i: Int in 0...cards.count - 1 {
+      self.hand.add(card: cards[i]!)
 
-      XCTAssertEqual(hand.count(), i + 1)
+      XCTAssertEqual(self.hand.count(), i + 1)
     }
   }
 
   func testAddsCardArrays() {
-    let cards: [Card] = [deck.draw()!, deck.draw()!, deck.draw()!, deck.draw()!]
+    let cards: [Card] = [
+      self.deck.draw()!, self.deck.draw()!, self.deck.draw()!, self.deck.draw()!,
+    ]
 
-    hand.add(cards: cards)
-    XCTAssertEqual(hand.count(), cards.count)
+    self.hand.add(cards: cards)
+    XCTAssertEqual(self.hand.count(), cards.count)
 
-    hand.add(cards: cards)
-    XCTAssertEqual(hand.count(), cards.count * 2)
+    self.hand.add(cards: cards)
+    XCTAssertEqual(self.hand.count(), cards.count * 2)
   }
 
   func testClears() {
-    let cards: [Card] = [deck.draw()!, deck.draw()!, deck.draw()!, deck.draw()!]
+    let cards: [Card] = [
+      self.deck.draw()!, self.deck.draw()!, self.deck.draw()!, self.deck.draw()!,
+    ]
 
-    hand.add(cards: cards)
-    XCTAssertEqual(hand.count(), cards.count)
+    self.hand.add(cards: cards)
+    XCTAssertEqual(self.hand.count(), cards.count)
 
-    hand.clear()
-    XCTAssertEqual(hand.count(), 0)
+    self.hand.clear()
+    XCTAssertEqual(self.hand.count(), 0)
   }
 
   func testInitsWithAndWithoutCards() {
-    XCTAssertEqual(hand.count(), 0)
+    XCTAssertEqual(self.hand.count(), 0)
 
-    let handWithCards = Hand(cards: [deck.draw()!, deck.draw()!])
+    let handWithCards: Hand = .init(cards: [self.deck.draw()!, self.deck.draw()!])
 
     XCTAssertEqual(handWithCards.count(), 2)
   }
 
   func testBlackjackTotals() {
-    XCTAssertEqual(hand.blackJackTotals(), [0])
-    XCTAssertEqual(hand.blackJackTotals(withoutFirst: true), [0])
+    XCTAssertEqual(self.hand.blackJackTotals(), [0])
+    XCTAssertEqual(self.hand.blackJackTotals(withoutFirst: true), [0])
 
-    hand.add(card: Card(value: 2, suit: Suit.Spade))
-    XCTAssertEqual(hand.blackJackTotals(), [2])
-    XCTAssertEqual(hand.blackJackTotals(withoutFirst: true), [0])
+    self.hand.add(card: Card(value: 2, suit: Suit.Spade))
+    XCTAssertEqual(self.hand.blackJackTotals(), [2])
+    XCTAssertEqual(self.hand.blackJackTotals(withoutFirst: true), [0])
 
-    hand.add(card: Card(value: 2, suit: Suit.Diamond))
-    XCTAssertEqual(hand.blackJackTotals(), [4])
-    XCTAssertEqual(hand.blackJackTotals(withoutFirst: true), [2])
+    self.hand.add(card: Card(value: 2, suit: Suit.Diamond))
+    XCTAssertEqual(self.hand.blackJackTotals(), [4])
+    XCTAssertEqual(self.hand.blackJackTotals(withoutFirst: true), [2])
 
-    hand.add(card: Card(value: 1, suit: Suit.Heart))
-    XCTAssertEqual(hand.blackJackTotals(), [5, 15])
-    XCTAssertEqual(hand.blackJackTotals(withoutFirst: true), [3, 13])
+    self.hand.add(card: Card(value: 1, suit: Suit.Heart))
+    XCTAssertEqual(self.hand.blackJackTotals(), [5, 15])
+    XCTAssertEqual(self.hand.blackJackTotals(withoutFirst: true), [3, 13])
 
-    hand.add(card: Card(value: 1, suit: Suit.Club))
-    XCTAssertEqual(hand.blackJackTotals(), [6, 16])
-    XCTAssertEqual(hand.blackJackTotals(withoutFirst: true), [4, 14])
+    self.hand.add(card: Card(value: 1, suit: Suit.Club))
+    XCTAssertEqual(self.hand.blackJackTotals(), [6, 16])
+    XCTAssertEqual(self.hand.blackJackTotals(withoutFirst: true), [4, 14])
   }
 
   func testBlackJackClosestToTwentyOne() {
-    XCTAssertEqual(hand.blackJackClosestToTwentyOne(), 0)
+    XCTAssertEqual(self.hand.blackJackClosestToTwentyOne(), 0)
 
-    hand.add(card: Card(value: 2, suit: Suit.Heart))
-    XCTAssertEqual(hand.blackJackClosestToTwentyOne(), 2)
+    self.hand.add(card: Card(value: 2, suit: Suit.Heart))
+    XCTAssertEqual(self.hand.blackJackClosestToTwentyOne(), 2)
 
-    hand.add(card: Card(value: 2, suit: Suit.Spade))
-    XCTAssertEqual(hand.blackJackClosestToTwentyOne(), 4)
+    self.hand.add(card: Card(value: 2, suit: Suit.Spade))
+    XCTAssertEqual(self.hand.blackJackClosestToTwentyOne(), 4)
 
-    hand.add(card: Card(value: 1, suit: Suit.Diamond))
-    XCTAssertEqual(hand.blackJackClosestToTwentyOne(), 15)
+    self.hand.add(card: Card(value: 1, suit: Suit.Diamond))
+    XCTAssertEqual(self.hand.blackJackClosestToTwentyOne(), 15)
   }
 
   func testDisplay() {
-    hand.add(cards: [
+    self.hand.add(cards: [
       Card(value: 1, suit: Suit.Diamond),
       Card(value: 2, suit: Suit.Heart),
       Card(value: 11, suit: Suit.Spade),
@@ -210,15 +217,17 @@ final class Hand_Tests: XCTestCase {
       Card(value: 14, suit: Suit.Club),
     ])
 
-    XCTAssertEqual(hand.display(), [
-      "Ace of Diamonds",
-      "2 of Hearts",
-      "Jack of Spades",
-      "10 of Clubs",
-      "Jack of Diamonds",
-      "Queen of Hearts",
-      "King of Spades",
-      "Unknown of Clubs",
-    ])
+    XCTAssertEqual(
+      self.hand.display(),
+      [
+        "Ace of Diamonds",
+        "2 of Hearts",
+        "Jack of Spades",
+        "10 of Clubs",
+        "Jack of Diamonds",
+        "Queen of Hearts",
+        "King of Spades",
+        "Unknown of Clubs",
+      ])
   }
 }
